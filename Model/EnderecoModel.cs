@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace ConsultaCEP.API.Model
 {
     [Serializable]
-    public class CepReponse
+    public class EnderecoModel
     {
         [JsonProperty("cep")]
         public string Cep { get; set; }
