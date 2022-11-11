@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using ConsultaCEP.API.DTO;
+using ConsultaCEP.API.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;

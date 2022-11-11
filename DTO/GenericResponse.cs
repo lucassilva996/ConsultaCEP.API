@@ -11,6 +11,6 @@ namespace ConsultaCEP.API.DTO
     {
         public HttpStatusCode CodigoHttp { get; set; }
         public T DadosRetorno { get; set; }
-        public ExpandoObject? ErroRetorno { get; set; }
+        public ExpandoObject ErroRetorno { get; set; }
     }
 }
