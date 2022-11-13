@@ -12,6 +12,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
+using ConsultaCEP.API.Mapping;
 
 namespace ConsultaCEP.API
 {
@@ -29,9 +31,11 @@ namespace ConsultaCEP.API
         {
             services.AddControllers();
             services.AddSwaggerGen();
-            services.AddSingleton<ICepServices, CepServices>();
+
+            services.AddSingleton<IEnderecoService, EnderecoService>();
             services.AddSingleton<IRestService, RestService>();
-            services.AddAutoMapper(typeof(Startup));
+
+            services.AddAutoMapper(typeof(EnderecoMapping));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

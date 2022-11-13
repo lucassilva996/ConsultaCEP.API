@@ -13,11 +13,11 @@ namespace ConsultaCEP.API.Service
 {
     public class RestService : IRestService
     {
-        public async Task<GenericResponse<EnderecoModel>> BuscarEnderecoPorCEP(string cep)
+        public async Task<ResponseGenerico<EnderecoModel>> BuscarEnderecoPorCEP(string cep)
         {
             var request = new HttpRequestMessage(HttpMethod.Get, $"https://brasilapi.com.br/api/cep/v1/{cep}");
 
-            var response = new GenericResponse<EnderecoModel>();
+            var response = new ResponseGenerico<EnderecoModel>();
             using (var client = new HttpClient())
             {
                 var responseBrasilApi = await client.SendAsync(request);

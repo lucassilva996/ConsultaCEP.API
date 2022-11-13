@@ -9,7 +9,7 @@ namespace ConsultaCEP.API.Interfaces
 {
     public interface IRestService
     {
-        Task<GenericResponse<EnderecoModel>> BuscarEnderecoPorCEP(string cep);
+        Task<ResponseGenerico<EnderecoModel>> BuscarEnderecoPorCEP(string cep);
 
     }
 }

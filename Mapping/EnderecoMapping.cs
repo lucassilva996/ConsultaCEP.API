@@ -12,7 +12,7 @@ namespace ConsultaCEP.API.Mapping
     {
         public EnderecoMapping()
         {
-            CreateMap(typeof(GenericResponse<>), typeof(GenericResponse<>));
+            CreateMap(typeof(ResponseGenerico<>), typeof(ResponseGenerico<>));
             CreateMap<EnderecoResponse, EnderecoModel>();
             CreateMap<EnderecoModel, EnderecoResponse>();
         }

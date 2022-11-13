@@ -1,4 +1,5 @@
-﻿using ConsultaCEP.API.Model;
+﻿using ConsultaCEP.API.Interfaces;
+using ConsultaCEP.API.Model;
 using ConsultaCEP.API.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -14,12 +15,13 @@ namespace ConsultaCEP.API.Controllers
     [Route("api/[controller]")]
     public class RetornaCepController : ControllerBase
     {
-        private readonly CepServices _cepService;
-        public RetornaCepController(CepServices cepServices)
-        {
-            _cepService = cepServices;
-        }
+        private readonly IEnderecoService _cepServices;
 
+        public RetornaCepController(IEnderecoService cepServices)
+        {
+            _cepServices = cepServices;
+        }
+      
         [HttpGet("busca/{cep}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -27,7 +29,7 @@ namespace ConsultaCEP.API.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> GetCep([FromRoute] string cep)
         {
-           var response = await _cepService.BuscarEndereco(cep);
+           var response = await _cepServices.BuscarEndereco(cep);
 
             if(response.CodigoHttp == HttpStatusCode.OK)
             {
