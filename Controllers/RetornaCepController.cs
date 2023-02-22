@@ -1,6 +1,7 @@
 ﻿using ConsultaCEP.API.Interfaces;
 using ConsultaCEP.API.Model;
 using ConsultaCEP.API.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -21,7 +22,8 @@ namespace ConsultaCEP.API.Controllers
         {
             _cepServices = cepServices;
         }
-      
+
+        [Authorize]
         [HttpGet("busca/{cep}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
